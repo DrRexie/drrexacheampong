@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import rexHeadshot from "@/assets/rex-headshot.png";
 
 const Hero = () => {
   return (
@@ -12,34 +13,53 @@ const Hero = () => {
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--border))_1px,_transparent_1px),_linear-gradient(90deg,_hsl(var(--border))_1px,_transparent_1px)] bg-[size:60px_60px] opacity-20" />
       
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8">
-          <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground">Health Informatics • AI Architecture • Strategy</span>
-        </div>
-        
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-          <span className="text-foreground">Rex Acheampong</span>
-          <span className="block text-3xl md:text-4xl lg:text-5xl mt-4 text-muted-foreground font-medium">PhD</span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gradient mb-8">
-          Architecting AI Systems That Transform Healthcare
-        </p>
-        
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-          Helping healthcare organizations, governments, and startups harness the power of 
-          AI agents and intelligent systems to revolutionize patient care and operational efficiency.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="group glow-primary text-lg px-8 py-6">
-            Book a Consultation
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-border hover:bg-secondary">
-            View Projects
-          </Button>
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* Text content */}
+          <div className="flex-1 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm text-muted-foreground">Health Informatics • AI Architecture • Strategy</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
+              <span className="text-foreground">Rex Acheampong</span>
+              <span className="block text-3xl md:text-4xl lg:text-5xl mt-4 text-muted-foreground font-medium">PhD</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gradient mb-8">
+              Architecting AI Systems That Transform Healthcare
+            </p>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-12 leading-relaxed">
+              Helping healthcare organizations, governments, and startups harness the power of 
+              AI agents and intelligent systems to revolutionize patient care and operational efficiency.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg" className="group glow-primary text-lg px-8 py-6">
+                Book a Consultation
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-border hover:bg-secondary">
+                View Projects
+              </Button>
+            </div>
+          </div>
+          
+          {/* Profile image */}
+          <div className="flex-shrink-0">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl" />
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-border bg-card">
+                <img 
+                  src={rexHeadshot} 
+                  alt="Rex Acheampong, PhD" 
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
