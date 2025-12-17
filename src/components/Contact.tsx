@@ -27,6 +27,7 @@ const contactSchema = z.object({
     .trim()
     .min(1, { message: "Message is required" })
     .max(2000, { message: "Message must be less than 2000 characters" }),
+  _gotcha: z.string().max(0).optional(), // Honeypot field
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -39,6 +40,7 @@ const Contact = () => {
       email: "",
       subject: "",
       message: "",
+      _gotcha: "",
     },
   });
 
@@ -154,6 +156,16 @@ const Contact = () => {
                       <FormMessage />
                     </FormItem>
                   )}
+                />
+                
+                {/* Honeypot field - hidden from users, catches bots */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  {...form.register("_gotcha")}
                 />
                 
                 <Button type="submit" size="lg" className="w-full glow-primary" disabled={isSubmitting}>
