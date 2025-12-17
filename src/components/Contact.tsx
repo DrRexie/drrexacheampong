@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const contactSchema = z.object({
   name: z.string()
@@ -33,6 +34,8 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const Contact = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
+  
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -73,9 +76,9 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-32 relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
-          <div>
+          <div className={`transition-all duration-700 ${sectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <span className="text-primary text-sm font-medium uppercase tracking-widest">Contact</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               Let's Build Something Transformative
@@ -86,19 +89,19 @@ const Contact = () => {
             </p>
             
             <div className="flex gap-4">
-              <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary">
+              <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                 <Mail className="w-5 h-5" />
               </Button>
-              <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary">
+              <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary">
+              <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                 <Twitter className="w-5 h-5" />
               </Button>
             </div>
           </div>
           
-          <div className="p-8 rounded-3xl bg-card border border-border">
+          <div className={`p-8 rounded-3xl bg-card border border-border transition-all duration-700 delay-200 ${sectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">

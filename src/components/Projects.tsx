@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const projects = [
   {
@@ -23,21 +24,25 @@ const projects = [
 ];
 
 const Projects = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation(0.1);
+
   return (
     <section id="projects" className="py-32 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="text-primary text-sm font-medium uppercase tracking-widest">Projects</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4">
             Featured Work
           </h2>
         </div>
         
-        <div className="space-y-8">
+        <div ref={projectsRef} className="space-y-8">
           {projects.map((project, index) => (
             <div 
               key={project.title}
-              className="group relative p-8 md:p-10 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-500"
+              className={`group relative p-8 md:p-10 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 ${projectsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
@@ -48,13 +53,13 @@ const Projects = () => {
                   <p className="text-muted-foreground max-w-2xl">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mt-4">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground">
+                      <span key={tag} className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-border group-hover:border-primary group-hover:text-primary transition-colors">
+                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-border group-hover:border-primary group-hover:text-primary group-hover:rotate-45 transition-all duration-300">
                   <ArrowUpRight className="w-5 h-5" />
                 </Button>
               </div>
