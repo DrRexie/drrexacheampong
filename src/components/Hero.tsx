@@ -7,8 +7,8 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(195_100%_50%_/_0.08)_0%,_transparent_50%)]" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-glow-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-glow-pulse [animation-delay:1.5s]" />
       
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--border))_1px,_transparent_1px),_linear-gradient(90deg,_hsl(var(--border))_1px,_transparent_1px)] bg-[size:60px_60px] opacity-20" />
@@ -17,26 +17,26 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Text content */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8 opacity-0 animate-fade-in [animation-delay:0.2s]">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">Health Informatics • AI Architecture • Strategy</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in [animation-delay:0.4s]">
               <span className="text-foreground">Rex Acheampong</span>
               <span className="block text-3xl md:text-4xl lg:text-5xl mt-4 text-muted-foreground font-medium">PhD</span>
             </h1>
             
-            <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gradient mb-8">
+            <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gradient mb-8 opacity-0 animate-fade-in [animation-delay:0.6s]">
               Architecting AI Systems That Transform Healthcare
             </p>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-12 leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-12 leading-relaxed opacity-0 animate-fade-in [animation-delay:0.8s]">
               Helping healthcare organizations, governments, and startups harness the power of 
               AI agents and intelligent systems to revolutionize patient care and operational efficiency.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-fade-in [animation-delay:1s]">
               <Button size="lg" className="group glow-primary text-lg px-8 py-6">
                 Book a Consultation
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -48,10 +48,10 @@ const Hero = () => {
           </div>
           
           {/* Profile image */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 opacity-0 animate-scale-in [animation-delay:0.5s]">
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl" />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-border bg-card">
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl animate-glow-pulse" />
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-border bg-card animate-float">
                 <img 
                   src={rexHeadshot} 
                   alt="Rex Acheampong, PhD" 
@@ -64,7 +64,7 @@ const Hero = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fade-in [animation-delay:1.5s]">
         <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
         <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
       </div>
