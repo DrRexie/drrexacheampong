@@ -41,31 +41,52 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={project.title}
-              className={`group relative p-8 md:p-10 rounded-3xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 ${projectsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              className={`group relative p-8 md:p-10 rounded-3xl bg-card border border-border transition-all duration-700 ease-out
+                hover:border-primary/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10
+                ${projectsVisible 
+                  ? 'opacity-100 translate-y-0 scale-100 blur-0' 
+                  : 'opacity-0 translate-y-12 scale-95 blur-sm'
+                }`}
+              style={{ transitionDelay: projectsVisible ? `${index * 200}ms` : '0ms' }}
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
-                  <span className="text-primary text-sm font-medium">{project.category}</span>
-                  <h3 className="text-2xl md:text-3xl font-bold mt-2 mb-4 group-hover:text-gradient transition-all">
+                  <span className={`text-primary text-sm font-medium inline-block transition-all duration-500 ${projectsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                    style={{ transitionDelay: projectsVisible ? `${index * 200 + 100}ms` : '0ms' }}>
+                    {project.category}
+                  </span>
+                  <h3 className={`text-2xl md:text-3xl font-bold mt-2 mb-4 group-hover:text-primary transition-all duration-500 ${projectsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                    style={{ transitionDelay: projectsVisible ? `${index * 200 + 150}ms` : '0ms' }}>
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground max-w-2xl">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+                  <p className={`text-muted-foreground max-w-2xl transition-all duration-500 ${projectsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                    style={{ transitionDelay: projectsVisible ? `${index * 200 + 200}ms` : '0ms' }}>
+                    {project.description}
+                  </p>
+                  <div className={`flex flex-wrap gap-2 mt-4 transition-all duration-500 ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: projectsVisible ? `${index * 200 + 250}ms` : '0ms' }}>
+                    {project.tags.map((tag, tagIndex) => (
+                      <span 
+                        key={tag} 
+                        className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300 group-hover:scale-105"
+                        style={{ transitionDelay: `${tagIndex * 50}ms` }}
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-border group-hover:border-primary group-hover:text-primary group-hover:rotate-45 transition-all duration-300">
+                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-border group-hover:border-primary group-hover:text-primary group-hover:rotate-45 group-hover:scale-110 transition-all duration-500">
                   <ArrowUpRight className="w-5 h-5" />
                 </Button>
               </div>
               
               {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
+              
+              {/* Animated border glow */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ boxShadow: 'inset 0 0 20px hsl(var(--primary) / 0.1)' }} />
             </div>
           ))}
         </div>
