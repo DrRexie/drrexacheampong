@@ -112,7 +112,7 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel className="text-sm text-muted-foreground">Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your name" className="bg-secondary border-border" {...field} />
+                          <Input placeholder="Dr. Rex Acheampong" className="bg-secondary border-border" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -125,7 +125,7 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel className="text-sm text-muted-foreground">Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="your@email.com" className="bg-secondary border-border" {...field} />
+                          <Input type="email" placeholder="krexie@hotmail.com" className="bg-secondary border-border" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
