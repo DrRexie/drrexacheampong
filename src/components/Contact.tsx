@@ -99,7 +99,7 @@ const Contact = () => {
                   <Linkedin className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="tel:+18484670341">
+              <a href="tel:+19735635798">
                 <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                   <Phone className="w-5 h-5" />
                 </Button>
