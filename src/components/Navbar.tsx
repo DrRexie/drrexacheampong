@@ -32,7 +32,7 @@ const Navbar = () => {
             href="#" 
             className="group relative flex items-center"
           >
-            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
+            <div className="relative w-16 h-16 rounded-lg overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
               <img 
                 src={rexLogo} 
                 alt="Rex Acheampong" 
