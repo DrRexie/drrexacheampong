@@ -22,9 +22,9 @@ const Hero = () => {
               <span className="text-sm text-muted-foreground">Health Informatics • AI Architecture • Strategy</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in [animation-delay:0.4s]">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 opacity-0 animate-fade-in [animation-delay:0.4s]">
               <span className="text-foreground">Rex Acheampong</span>
-              <span className="block text-3xl md:text-4xl lg:text-5xl mt-4 text-muted-foreground font-medium">PhD</span>
+              <span className="text-muted-foreground font-medium">, PhD</span>
             </h1>
             
             <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gradient mb-8 opacity-0 animate-fade-in [animation-delay:0.6s]">
