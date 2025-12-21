@@ -37,10 +37,12 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-fade-in [animation-delay:1s]">
-              <Button size="lg" className="group glow-primary text-lg px-8 py-6">
-                Book a Consultation
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <a href="#contact">
+                <Button size="lg" className="group glow-primary text-lg px-8 py-6">
+                  Book a Consultation
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-border hover:bg-secondary">
                 View Projects
               </Button>
