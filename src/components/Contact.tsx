@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -97,6 +97,11 @@ const Contact = () => {
               <a href="https://www.linkedin.com/in/rex-acheampong-phd-6811442b/" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                   <Linkedin className="w-5 h-5" />
+                </Button>
+              </a>
+              <a href="tel:+18484670341">
+                <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
+                  <Phone className="w-5 h-5" />
                 </Button>
               </a>
             </div>
