@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import rexLogo from "@/assets/rex-logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -27,8 +28,18 @@ const Navbar = () => {
     }`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="text-xl font-bold tracking-tight">
-            Rex<span className="text-primary">.</span>
+          <a 
+            href="#" 
+            className="group relative flex items-center"
+          >
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
+              <img 
+                src={rexLogo} 
+                alt="Rex Acheampong" 
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
           </a>
           
           {/* Desktop nav */}
