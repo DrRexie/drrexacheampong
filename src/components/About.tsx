@@ -1,5 +1,5 @@
 import { Brain, Heart, Shield, Zap } from "lucide-react";
-import rexHeadshot from "@/assets/rex-headshot.png";
+import rexHeadshot from "@/assets/rex-about-photo.png";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const expertise = [
