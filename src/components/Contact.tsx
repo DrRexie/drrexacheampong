@@ -39,8 +39,8 @@ const Contact = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: "",
-      email: "",
+      name: "Dr. Rex Acheampong",
+      email: "krexie@hotmail.com",
       subject: "",
       message: "",
       _gotcha: "",

@@ -30,16 +30,19 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           <a 
             href="#" 
-            className="group relative flex items-center"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="group relative flex items-center cursor-pointer"
           >
-            <div className="relative w-16 h-16 rounded-lg overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30">
+            <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 bg-white">
               <img 
                 src={rexLogo} 
-                alt="Rex Acheampong" 
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                alt="Rex Acheampong - Home" 
+                className="w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
           </a>
           
           {/* Desktop nav */}

@@ -166,7 +166,7 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
-                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-border group-hover:border-primary group-hover:text-primary group-hover:rotate-45 group-hover:scale-110 transition-all duration-500">
+                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-2 border-primary bg-primary/10 text-primary hover:bg-primary hover:text-white group-hover:rotate-45 group-hover:scale-110 transition-all duration-500">
                   <ArrowUpRight className="w-5 h-5" />
                 </Button>
               </div>
