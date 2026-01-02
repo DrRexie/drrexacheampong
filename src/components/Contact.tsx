@@ -121,9 +121,9 @@ const Contact = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-muted-foreground">Name</FormLabel>
+                        <FormLabel className="text-sm font-semibold text-foreground">Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Dr. Rex Acheampong" className="bg-secondary border-border" {...field} />
+                          <Input placeholder="Your name" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -134,9 +134,9 @@ const Contact = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm text-muted-foreground">Email</FormLabel>
+                        <FormLabel className="text-sm font-semibold text-foreground">Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="krexie@hotmail.com" className="bg-secondary border-border" {...field} />
+                          <Input type="email" placeholder="your@email.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -149,9 +149,9 @@ const Contact = () => {
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm text-muted-foreground">Subject</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-foreground">Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="How can I help?" className="bg-secondary border-border" {...field} />
+                        <Input placeholder="How can I help?" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -163,9 +163,9 @@ const Contact = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm text-muted-foreground">Message</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-foreground">Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Tell me about your project..." rows={5} className="bg-secondary border-border resize-none" {...field} />
+                        <Textarea placeholder="Tell me about your project..." rows={5} className="resize-none" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
