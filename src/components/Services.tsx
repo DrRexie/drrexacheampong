@@ -1,6 +1,7 @@
 import { Mic, Users, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import rexOffice from "@/assets/rex-office-2.png";
 
 const services = [
   {
@@ -32,11 +33,27 @@ const Services = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
       
       <div className="relative max-w-6xl mx-auto px-6">
-        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <span className="text-primary text-sm font-medium uppercase tracking-widest">Services</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            How I Can Help
-          </h2>
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div ref={headerRef} className={`transition-all duration-700 ${headerVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <span className="text-primary text-sm font-medium uppercase tracking-widest">Services</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+              How I Can Help
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              With over a decade of experience in health informatics and AI, I help organizations 
+              transform their healthcare delivery through strategic technology adoption.
+            </p>
+          </div>
+          <div className={`hidden lg:block transition-all duration-700 delay-200 ${headerVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
+              <img 
+                src={rexOffice} 
+                alt="Dr. Rex Acheampong in office" 
+                className="relative rounded-3xl shadow-2xl border border-border w-full object-cover aspect-[4/5]"
+              />
+            </div>
+          </div>
         </div>
         
         <div ref={cardsRef} className="grid md:grid-cols-3 gap-8">
