@@ -15,10 +15,22 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Rex Acheampong, PhD | AI Architect & Health Informatics Expert" />
     <meta name="twitter:description" content="Architecting AI systems that transform healthcare." />
+
+    <!-- n8n Chat Widget -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- n8n Chat Widget -->
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl: 'https://drrexacheampong.com/'
+      });
+    </script>
   </body>
 </html>
