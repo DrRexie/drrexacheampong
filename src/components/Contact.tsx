@@ -79,22 +79,22 @@ const Contact = () => {
   return (
     <section id="contact" className="py-32 relative">
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
-        {/* Image Gallery Row */}
+        {/* Image Gallery Row - Full Photos */}
         <div className={`grid sm:grid-cols-2 gap-6 mb-16 transition-all duration-700 ${sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="relative group overflow-hidden rounded-3xl">
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
+          <div className="relative group overflow-hidden rounded-3xl border border-border bg-card">
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <img 
               src={rexOffice1} 
               alt="Dr. Rex Acheampong - Health Informatician" 
-              className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          <div className="relative group overflow-hidden rounded-3xl">
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
+          <div className="relative group overflow-hidden rounded-3xl border border-border bg-card">
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <img 
               src={rexOffice3} 
               alt="Dr. Rex Acheampong in office" 
-              className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         </div>
