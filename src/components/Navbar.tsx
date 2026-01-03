@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import rexLogo from "@/assets/rex-logo.png";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "#about", isPage: false },
+  { label: "Projects", href: "#projects", isPage: false },
+  { label: "Services", href: "#services", isPage: false },
+  { label: "Gallery", href: "/gallery", isPage: true },
+  { label: "Contact", href: "#contact", isPage: false },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,17 +25,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (href: string, isPage: boolean) => {
+    if (!isPage && location.pathname !== "/") {
+      // Navigate to home first, then scroll to section
+      window.location.href = "/" + href;
+    }
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""
     }`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <a 
-            href="#" 
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+          <Link 
+            to="/"
+            onClick={() => {
+              if (location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
             }}
             className="group relative flex items-center cursor-pointer"
           >
@@ -44,18 +54,29 @@ const Navbar = () => {
                 className="w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-          </a>
+          </Link>
           
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a 
-                key={link.label}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
+              link.isPage ? (
+                <Link 
+                  key={link.label}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a 
+                  key={link.label}
+                  href={location.pathname === "/" ? link.href : "/" + link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => handleNavClick(link.href, link.isPage)}
+                >
+                  {link.label}
+                </a>
+              )
             ))}
             <Button size="sm" className="ml-4">
               Book a Call
@@ -77,14 +98,25 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             {navLinks.map((link) => (
-              <a 
-                key={link.label}
-                href={link.href}
-                className="block py-3 text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
+              link.isPage ? (
+                <Link 
+                  key={link.label}
+                  to={link.href}
+                  className="block py-3 text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a 
+                  key={link.label}
+                  href={location.pathname === "/" ? link.href : "/" + link.href}
+                  className="block py-3 text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
             ))}
             <Button size="sm" className="w-full mt-4">
               Book a Call
