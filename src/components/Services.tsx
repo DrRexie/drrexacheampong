@@ -70,7 +70,7 @@ const Services = () => {
               <h3 className="text-xl font-bold mb-4">{service.title}</h3>
               <p className="text-muted-foreground flex-1 mb-6">{service.description}</p>
               
-              <Button variant="ghost" className="justify-start p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent group-hover:translate-x-1 transition-transform">
+              <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                 {service.cta} →
               </Button>
             </div>
