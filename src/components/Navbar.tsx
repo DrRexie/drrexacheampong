@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Projects", href: "#projects", isPage: false },
   { label: "Services", href: "#services", isPage: false },
   { label: "Gallery", href: "/gallery", isPage: true },
-  { label: "Contact", href: "#contact", isPage: false },
+  { label: "Contact", href: "#contact-form", isPage: false },
 ];
 
 const Navbar = () => {
@@ -78,9 +78,11 @@ const Navbar = () => {
                 </a>
               )
             ))}
-            <Button size="sm" className="ml-4">
-              Book a Call
-            </Button>
+            <a href="tel:+1234567890">
+              <Button size="sm" className="ml-4">
+                Book a Call
+              </Button>
+            </a>
           </div>
           
           {/* Mobile menu button */}
@@ -118,9 +120,11 @@ const Navbar = () => {
                 </a>
               )
             ))}
-            <Button size="sm" className="w-full mt-4">
-              Book a Call
-            </Button>
+            <a href="tel:+1234567890" className="w-full">
+              <Button size="sm" className="w-full mt-4">
+                Book a Call
+              </Button>
+            </a>
           </div>
         )}
       </div>
