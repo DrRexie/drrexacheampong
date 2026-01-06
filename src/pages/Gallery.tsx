@@ -7,8 +7,16 @@ import rexAboutPhoto from "@/assets/rex-about-photo.png";
 import rexOffice1 from "@/assets/rex-office-1.png";
 import rexOffice2 from "@/assets/rex-office-2.png";
 import rexOffice3 from "@/assets/rex-office-3.png";
+import rexEhealthSolutions from "@/assets/rex-ehealth-solutions.png";
+import rexLibrary2026 from "@/assets/rex-library-2026.png";
+import rexBillboard from "@/assets/rex-billboard.png";
+import rexOfficeSignage from "@/assets/rex-office-signage.png";
 
 const galleryImages = [
+  { src: rexEhealthSolutions, alt: "Dr. Rex Acheampong - Strategic eHealth Solutions" },
+  { src: rexLibrary2026, alt: "Dr. Rex Acheampong - 2026 Vision" },
+  { src: rexBillboard, alt: "Dr. Rex Acheampong - Strategic eHealth Solutions Billboard" },
+  { src: rexOfficeSignage, alt: "Dr. Rex Acheampong - Office Signage" },
   { src: rexHeadshot, alt: "Rex Acheampong, PhD - Professional Headshot" },
   { src: rexAboutPhoto, alt: "Rex Acheampong, PhD - About Photo" },
   { src: rexOffice1, alt: "Dr. Rex Acheampong - Health Informatician" },
