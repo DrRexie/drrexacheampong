@@ -134,7 +134,7 @@ const Contact = () => {
             </div>
           </div>
           
-          <div className={`p-8 rounded-3xl bg-card border border-border transition-all duration-700 delay-200 ${sectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          <div id="contact-form" className={`p-8 rounded-3xl bg-card border border-border transition-all duration-700 delay-200 ${sectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
