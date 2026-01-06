@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import rexHeadshot from "@/assets/rex-headshot-latest.png";
+import rexLogo from "@/assets/rex-logo.png";
 
 const Hero = () => {
   return (
@@ -17,6 +18,15 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Text content */}
           <div className="flex-1 text-center lg:text-left">
+            {/* Large Logo */}
+            <div className="flex justify-center lg:justify-start mb-8 opacity-0 animate-fade-in [animation-delay:0.1s]">
+              <img 
+                src={rexLogo} 
+                alt="Dr. Rex Acheampong Logo" 
+                className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain"
+              />
+            </div>
+            
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8 opacity-0 animate-fade-in [animation-delay:0.2s]">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">Health Informatics • AI Architecture • Strategy</span>
