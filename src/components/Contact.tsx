@@ -110,6 +110,12 @@ const Contact = () => {
               need strategic guidance, or want to invite me to speak—I'd love to hear from you.
             </p>
             
+            {/* Phone number display */}
+            <a href="tel:+19735635798" className="inline-flex items-center gap-3 text-xl font-semibold text-primary hover:text-primary/80 transition-colors mb-6">
+              <Phone className="w-6 h-6" />
+              <span>+1 (973) 563-5798</span>
+            </a>
+            
             <div className="flex gap-4">
               <a href="https://strategicehealthsolutions.com/" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
