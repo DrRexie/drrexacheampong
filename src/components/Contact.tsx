@@ -116,7 +116,7 @@ const Contact = () => {
               <span>+1 (973) 563-5798</span>
             </a>
             
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4 mt-2">
               <a href="https://strategicehealthsolutions.com/" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                   <Globe className="w-5 h-5" />
@@ -130,11 +130,6 @@ const Contact = () => {
               <a href="mailto:krexie@hotmail.com" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                   <Mail className="w-5 h-5" />
-                </Button>
-              </a>
-              <a href="tel:+19735635798">
-                <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
-                  <Phone className="w-5 h-5" />
                 </Button>
               </a>
             </div>
