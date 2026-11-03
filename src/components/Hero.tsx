@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import rexHeadshot from "@/assets/rex-hero-photo.png";
+import rexHeroAsset from "@/assets/rex-hero-new.png.asset.json";
+const rexHeadshot = rexHeroAsset.url;
 import rexLogo from "@/assets/rex-logo.png";
 
 const Hero = () => {
