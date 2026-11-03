@@ -33,6 +33,8 @@ const contactSchema = z.object({
   _gotcha: z.string().max(0).optional(), // Honeypot field
 });
 
+const INQUIRY_ENDPOINT = "https://rex-console.vercel.app/api/inquiries";
+
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const Contact = () => {
@@ -41,8 +43,8 @@ const Contact = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: "Dr. Rex Acheampong",
-      email: "krexie@hotmail.com",
+      name: "",
+      email: "",
       subject: "",
       message: "",
       _gotcha: "",
@@ -55,17 +57,26 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch("https://formspree.io/f/mjknnzdg", {
+      // Sends the request to the Site Console dashboard (rex-console.vercel.app),
+      // which stores it and emails a notification.
+      const response = await fetch(INQUIRY_ENDPOINT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          audience: "other",
+          service: "Consultation request",
+          message: `Subject: ${data.subject}\n\n${data.message}`,
+          website: data._gotcha ?? "", // honeypot
+        }),
       });
 
       if (response.ok) {
         toast.success("Thank you for your message! I'll get back to you soon.");
         form.reset();
+      } else if (response.status === 429) {
+        toast.error("You've sent a few messages already. Please try again in a few minutes.");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
