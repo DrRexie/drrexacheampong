@@ -140,7 +140,7 @@ const Contact = () => {
                   <Linkedin className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="mailto:krexie@hotmail.com" target="_blank" rel="noopener noreferrer">
+              <a href="mailto:contact@drrexacheampong.com" aria-label="Email contact@drrexacheampong.com" title="contact@drrexacheampong.com">
                 <Button variant="outline" size="icon" className="w-12 h-12 rounded-full border-border hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300">
                   <Mail className="w-5 h-5" />
                 </Button>
