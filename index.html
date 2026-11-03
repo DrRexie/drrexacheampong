@@ -21,24 +21,22 @@
     <meta name="twitter:description" content="Architecting AI systems that transform healthcare." />
     <meta name="twitter:image" content="https://drrexacheampong.lovable.app/og-image.png" />
 
-    <!-- n8n Chat Widget -->
-    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- n8n Chat Widget -->
-    <script type="module">
-      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-      createChat({
-        webhookUrl: 'https://aiaa1.datasciencemasterminds.com/webhook/ef5bf615-39a6-4440-aa99-b7a6f5cdac3f/chat',
-        initialMessages: [
-          'My name is Rex. How can I assist you today?'
-        ]
-      });
-    </script>
+    <!-- Website chat assistant (served by the Site Console dashboard) -->
+    <script
+      src="https://rex-console.vercel.app/chat-widget.js"
+      defer
+      data-title="Ask Dr. Rex's assistant"
+      data-subtitle="AI assistant · replies in seconds"
+      data-greeting="Hi! I'm Dr. Rex Acheampong's assistant. Ask me about his AI and health informatics work, or book a consultation."
+      data-color="#0369A1"
+      data-avatar="RA"
+      data-suggestions="What services does Dr. Rex offer?|Book a consultation|Invite Dr. Rex to speak"
+    ></script>
   </body>
 </html>
