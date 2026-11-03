@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { track } from "@/lib/track";
 import { toast } from "sonner";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import rexOffice1 from "@/assets/rex-office-1.png";
@@ -73,6 +74,7 @@ const Contact = () => {
       });
 
       if (response.ok) {
+        track("inquiry_submit");
         toast.success("Thank you for your message! I'll get back to you soon.");
         form.reset();
       } else if (response.status === 429) {
