@@ -35,8 +35,8 @@ const Services = () => {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <div ref={headerRef} className={`transition-all duration-700 ${headerVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <span className="text-primary text-sm font-medium uppercase tracking-widest">Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <span className="eyebrow">Services</span>
+            <h2 className="text-5xl md:text-6xl font-semibold leading-[1.02] mt-5 mb-6">
               How I Can Help
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -50,7 +50,7 @@ const Services = () => {
               <img 
                 src={rexOffice} 
                 alt="Dr. Rex Acheampong in office" 
-                className="relative rounded-3xl shadow-2xl border border-border w-full object-cover aspect-[4/5]"
+                className="relative rounded-3xl shadow-2xl gold-ring w-full object-cover aspect-[4/5]"
               />
             </div>
           </div>
@@ -60,10 +60,10 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={service.title}
-              className={`group relative p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/5 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`group relative p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 ring-1 ring-primary/25 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <service.icon className="w-7 h-7 text-primary" />
               </div>
               

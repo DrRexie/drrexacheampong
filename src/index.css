@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,52 +6,57 @@
 
 @layer base {
   :root {
-    --background: 209 40% 96%;
-    --foreground: 222 47% 11%;
-    --card: 210 40% 98%;
-    --card-foreground: 222 47% 11%;
-    --popover: 214 31% 91%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 200 98% 39%;
-    --primary-foreground: 204 100% 97%;
-    --secondary: 215 24% 26%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 215 20% 65%;
-    --muted-foreground: 222 47% 11%;
-    --accent: 210 40% 98%;
-    --accent-foreground: 215 19% 34%;
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
-    --border: 212 26% 83%;
-    --input: 212 26% 83%;
-    --ring: 200 98% 39%;
-    --radius: 0.5rem;
+    /* Dr. Rex Acheampong — black & gold
+       ink #0B0B0C · card #141416 · gold #D4AF5A · deep gold #B8923A · ivory #F4EFE6 */
+    --background: 240 4% 4.5%;
+    --foreground: 40 33% 93%;
+    --card: 240 4% 8%;
+    --card-foreground: 40 33% 93%;
+    --popover: 240 4% 9.5%;
+    --popover-foreground: 40 33% 93%;
+    --primary: 42 58% 59%;
+    --primary-foreground: 240 4% 5%;
+    --secondary: 240 4% 13%;
+    --secondary-foreground: 40 33% 93%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 40 7% 64%;
+    --accent: 41 52% 47%;
+    --accent-foreground: 240 4% 5%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 6% 17%;
+    --input: 40 6% 20%;
+    --ring: 42 58% 59%;
+    --radius: 0.875rem;
 
-    --sidebar-background: 0 0% 5%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 200 98% 39%;
-    --sidebar-primary-foreground: 204 100% 97%;
-    --sidebar-accent: 215 24% 26%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 212 26% 83%;
-    --sidebar-ring: 200 98% 39%;
-    --chart-1: 198 93% 59%;
-    --chart-2: 213 93% 67%;
-    --chart-3: 215 20% 65%;
-    --chart-4: 215 16% 46%;
-    --chart-5: 215 19% 34%;
-    --sidebar: 210 40% 98%;
-    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --gold-light: 43 66% 74%;
+    --gold-deep: 41 52% 40%;
+
+    --sidebar-background: 240 4% 6%;
+    --sidebar-foreground: 40 33% 93%;
+    --sidebar-primary: 42 58% 59%;
+    --sidebar-primary-foreground: 240 4% 5%;
+    --sidebar-accent: 240 4% 13%;
+    --sidebar-accent-foreground: 40 33% 93%;
+    --sidebar-border: 40 6% 17%;
+    --sidebar-ring: 42 58% 59%;
+    --chart-1: 42 58% 59%;
+    --chart-2: 43 66% 74%;
+    --chart-3: 41 52% 47%;
+    --chart-4: 40 7% 64%;
+    --chart-5: 40 6% 30%;
+    --sidebar: 240 4% 8%;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'Cormorant Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.4), 0 1px 2px -1px hsl(0 0% 0% / 0.4);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.4), 0 1px 2px -1px hsl(0 0% 0% / 0.4);
+    --shadow-md: 0 2px 6px 0px hsl(0 0% 0% / 0.45), 0 2px 4px -1px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 8px 24px -6px hsl(0 0% 0% / 0.55);
+    --shadow-xl: 0 16px 40px -12px hsl(0 0% 0% / 0.6);
+    --shadow-2xl: 0 28px 64px -16px hsl(0 0% 0% / 0.7);
     --tracking-normal: 0em;
     --spacing: 0.25rem;
   }
@@ -110,27 +112,70 @@
     @apply border-border;
   }
 
+  html {
+    color-scheme: dark;
+    scroll-padding-top: 6rem;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    background-image: radial-gradient(70rem 40rem at 50% -10%, hsl(var(--primary) / 0.07), transparent 60%);
+    background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+  h1, h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(195 100% 50%), hsl(220 100% 60%));
+    background-image: linear-gradient(120deg, hsl(var(--gold-light)) 0%, hsl(var(--primary)) 45%, hsl(var(--gold-deep)) 100%);
   }
 
   .glow-primary {
-    box-shadow: 0 0 60px hsl(195 100% 50% / 0.3);
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.45);
   }
 
   .glow-accent {
-    box-shadow: 0 0 40px hsl(195 100% 50% / 0.2);
+    box-shadow: 0 18px 44px -18px hsl(var(--primary) / 0.35);
+  }
+
+  /* Hairline gold rule used under section labels */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--primary));
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)));
+  }
+
+  .gold-ring {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.55), 0 0 0 8px hsl(var(--primary) / 0.06), 0 30px 80px -30px hsl(var(--primary) / 0.45);
   }
 }

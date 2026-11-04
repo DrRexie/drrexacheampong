@@ -172,8 +172,8 @@ const Projects = () => {
       </div>
       <div className="max-w-6xl mx-auto px-6">
         <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <span className="text-primary text-sm font-medium uppercase tracking-widest">Projects</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
+          <span className="eyebrow">Projects</span>
+          <h2 className="text-5xl md:text-6xl font-semibold leading-[1.02] mt-5">
             Featured Work
           </h2>
         </div>
@@ -229,7 +229,7 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
-                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-2 border-primary bg-primary/10 text-primary hover:bg-primary hover:text-white group-hover:rotate-45 group-hover:scale-110 transition-all duration-500">
+                <Button variant="outline" size="icon" className="shrink-0 w-12 h-12 rounded-full border-2 border-primary bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground group-hover:rotate-45 group-hover:scale-110 transition-all duration-500">
                   <ArrowUpRight className="w-5 h-5" />
                 </Button>
               </div>

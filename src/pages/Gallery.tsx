@@ -41,8 +41,8 @@ const Gallery = () => {
           
           <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
             <div className={`text-center mb-16 transition-all duration-700 ${sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <span className="text-primary text-sm font-medium uppercase tracking-widest">Gallery</span>
-              <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+              <span className="eyebrow">Gallery</span>
+              <h1 className="text-5xl md:text-6xl font-semibold leading-[1.02] mt-5 mb-6">
                 Photo Gallery
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

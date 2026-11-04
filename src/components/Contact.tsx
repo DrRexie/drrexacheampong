@@ -114,8 +114,8 @@ const Contact = () => {
         
         <div className="grid lg:grid-cols-2 gap-16">
           <div className={`transition-all duration-700 ${sectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <span className="text-primary text-sm font-medium uppercase tracking-widest">Contact</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <span className="eyebrow">Contact</span>
+            <h2 className="text-5xl md:text-6xl font-semibold leading-[1.02] mt-5 mb-6">
               Let's Build Something Transformative
             </h2>
             <p className="text-lg text-muted-foreground mb-8">

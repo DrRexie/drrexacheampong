@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import rexLogo from "@/assets/rex-logo.png";
+import BrandMark from "@/components/BrandMark";
 
 const navLinks = [
   { label: "About", href: "#about", isPage: false },
@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""
+      isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-gradient-to-b from-background/80 to-transparent"
     }`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
@@ -45,15 +45,14 @@ const Navbar = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="group relative flex items-center cursor-pointer"
+            className="group relative flex items-center cursor-pointer rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Dr. Rex Acheampong, home"
           >
-            <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 bg-white">
-              <img 
-                src={rexLogo} 
-                alt="Rex Acheampong - Home" 
-                className="w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
+            <BrandMark className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
+            <span className="ml-3 flex flex-col leading-none">
+              <span className="font-serif text-[19px] font-bold tracking-[0.08em] text-primary">DR. REX ACHEAMPONG</span>
+              <span className="mt-1 hidden sm:block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">PhD · Health Informatics &amp; AI</span>
+            </span>
           </Link>
           
           {/* Desktop nav */}
@@ -79,7 +78,7 @@ const Navbar = () => {
               )
             ))}
             <a href="tel:+19735635798">
-              <Button size="sm" className="ml-4">
+              <Button size="sm" className="ml-2 px-5">
                 Book a Call
               </Button>
             </a>
@@ -98,7 +97,7 @@ const Navbar = () => {
         
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-xl -mx-6 px-6">
             {navLinks.map((link) => (
               link.isPage ? (
                 <Link 
