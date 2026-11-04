@@ -29,7 +29,7 @@ const Hero = () => {
             
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8 opacity-0 animate-fade-in [animation-delay:0.2s]">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground">Health Informatics • AI Architecture • Strategy</span>
+              <span className="text-sm text-muted-foreground">Biomedical Informaticist · AI Architect · Digital Health Leader</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.98] mb-6 opacity-0 animate-fade-in [animation-delay:0.4s]">
@@ -42,8 +42,8 @@ const Hero = () => {
             </p>
             
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-12 leading-relaxed opacity-0 animate-fade-in [animation-delay:0.8s]">
-              Helping healthcare organizations, governments, and startups harness the power of 
-              AI agents and intelligent systems to revolutionize patient care and operational efficiency.
+              I bring together biomedical research, clinical data, AI and health information systems. I help
+              hospitals, research programs and national health systems make better decisions with data they can trust.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-fade-in [animation-delay:1s]">

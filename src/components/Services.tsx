@@ -1,80 +1,95 @@
-import { Mic, Users, Lightbulb } from "lucide-react";
+import { FlaskConical, Lightbulb, Mic, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/SectionHeader";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { prefillContact } from "@/lib/contact-prefill";
 import rexOffice from "@/assets/rex-office-2.png";
 
 const services = [
   {
     icon: Lightbulb,
     title: "AI Strategy Consulting",
-    description: "Strategic guidance on AI adoption, from opportunity identification to implementation roadmaps tailored for healthcare organizations.",
-    cta: "Book Consultation"
+    description:
+      "Strategic guidance on AI adoption, from opportunity identification to implementation roadmaps tailored for healthcare organizations.",
+    cta: "Book Consultation",
+    service: "AI strategy consulting",
   },
   {
     icon: Users,
     title: "Advisory & Implementation",
-    description: "Hands-on support building AI agent systems, health informatics platforms, and data infrastructure that delivers real results.",
-    cta: "Hire Me"
+    description:
+      "Hands-on support building AI agent systems, EHR, HIE and health informatics platforms, and data infrastructure that delivers real results.",
+    cta: "Hire Me",
+    service: "Advisory & implementation",
+  },
+  {
+    icon: FlaskConical,
+    title: "Research Design & Statistics",
+    description:
+      "Study design, analysis plans and statistical consulting for single-site and international research programs.",
+    cta: "Collaborate",
+    service: "Study design",
   },
   {
     icon: Mic,
     title: "Speaking & Workshops",
-    description: "Engaging keynotes and workshops on AI in healthcare, digital transformation, and the future of health technology.",
-    cta: "Invite to Speak"
-  }
+    description:
+      "Keynotes, panels and workshops on AI in healthcare, digital transformation, and the future of health technology.",
+    cta: "Invite to Speak",
+    service: "Speaking & workshops",
+  },
 ];
 
 const Services = () => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation(0.2);
+  const { ref: imgRef, isVisible: imgVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation(0.15);
 
   return (
-    <section id="services" className="py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
-      
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-          <div ref={headerRef} className={`transition-all duration-700 ${headerVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <span className="eyebrow">Services</span>
-            <h2 className="text-5xl md:text-6xl font-semibold leading-[1.02] mt-5 mb-6">
-              How I Can Help
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              With over a decade of experience in health informatics and AI, I help organizations 
-              transform their healthcare delivery through strategic technology adoption.
-            </p>
-          </div>
-          <div className={`hidden lg:block transition-all duration-700 delay-200 ${headerVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+    <section id="services" className="relative py-28 md:py-32">
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="mb-14 grid items-end gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+          <SectionHeader
+            className="mb-0"
+            eyebrow="Services"
+            title="How I Can Help"
+            intro="With over a decade of experience in health informatics and AI, I help organizations transform their healthcare delivery through strategic technology adoption. I'm available for advisory and consulting work, speaking, and research collaboration."
+          />
+          <div
+            ref={imgRef}
+            className={`hidden transition-all duration-700 lg:block ${imgVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
+          >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
-              <img 
-                src={rexOffice} 
-                alt="Dr. Rex Acheampong in office" 
-                className="relative rounded-3xl shadow-2xl gold-ring w-full object-cover aspect-[4/5]"
+              <div className="absolute inset-0 rounded-3xl bg-primary/15 blur-2xl" aria-hidden="true" />
+              <img
+                src={rexOffice}
+                alt="Dr. Rex Acheampong in office"
+                className="relative aspect-[4/3] w-full rounded-3xl object-cover object-top shadow-2xl gold-ring"
               />
             </div>
           </div>
         </div>
-        
-        <div ref={cardsRef} className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={service.title}
-              className={`group relative p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-500 flex flex-col hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+
+        <div ref={cardsRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s, i) => (
+            <div
+              key={s.title}
+              className={`group relative flex flex-col rounded-3xl border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 ${
+                cardsVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+              }`}
+              style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 ring-1 ring-primary/25 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="w-7 h-7 text-primary" />
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/25 transition-transform duration-300 group-hover:scale-110">
+                <s.icon className="h-7 w-7 text-primary" aria-hidden="true" />
               </div>
-              
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="text-muted-foreground flex-1 mb-6">{service.description}</p>
-              
-              <a href="#contact-form" className="w-full">
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  {service.cta} →
-                </Button>
-              </a>
+              <h3 className="mb-3 text-lg font-bold text-foreground">{s.title}</h3>
+              <p className="mb-6 flex-1 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+              <Button
+                variant="outline"
+                className="w-full transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
+                onClick={() => prefillContact({ service: s.service })}
+              >
+                {s.cta} →
+              </Button>
             </div>
           ))}
         </div>

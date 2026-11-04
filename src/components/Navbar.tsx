@@ -6,8 +6,10 @@ import BrandMark from "@/components/BrandMark";
 
 const navLinks = [
   { label: "About", href: "#about", isPage: false },
-  { label: "Projects", href: "#projects", isPage: false },
+  { label: "Expertise", href: "#expertise", isPage: false },
   { label: "Services", href: "#services", isPage: false },
+  { label: "Work", href: "#work", isPage: false },
+  { label: "Research", href: "#research", isPage: false },
   { label: "Gallery", href: "/gallery", isPage: true },
   { label: "Contact", href: "#contact-form", isPage: false },
 ];
@@ -56,7 +58,7 @@ const Navbar = () => {
           </Link>
           
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               link.isPage ? (
                 <Link 
@@ -88,7 +90,7 @@ const Navbar = () => {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
@@ -97,7 +99,7 @@ const Navbar = () => {
         
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-xl -mx-6 px-6">
+          <div className="lg:hidden py-4 border-t border-border bg-background/95 backdrop-blur-xl -mx-6 px-6">
             {navLinks.map((link) => (
               link.isPage ? (
                 <Link 
