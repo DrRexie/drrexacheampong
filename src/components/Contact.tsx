@@ -107,7 +107,15 @@ const Contact = () => {
     "flex h-12 w-full appearance-none rounded-xl border border-input bg-[hsl(240_4%_6%)] px-4 pr-10 text-base text-foreground focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
 
   const details = [
-    { icon: Phone, label: "Phone", value: "+1 (973) 563-5798", href: "tel:+19735635798" },
+    {
+      icon: Phone,
+      label: "Phone",
+      numbers: [
+        { value: "+1 (973) 563-5798", href: "tel:+19735635798" },
+        { value: "+233 (0) 20136 5160", href: "tel:+233201365160" },
+        { value: "+1 (848) 467-0341", href: "tel:+18484670341" },
+      ],
+    },
     { icon: Mail, label: "Email", value: "contact@drrexacheampong.com", href: "mailto:contact@drrexacheampong.com" },
     { icon: Linkedin, label: "LinkedIn", value: "Rex Acheampong, PhD", href: "https://www.linkedin.com/in/rex-acheampong-phd-6811442b/", external: true },
     { icon: Globe, label: "Company", value: "strategicehealthsolutions.com", href: "https://strategicehealthsolutions.com/", external: true },
@@ -140,24 +148,32 @@ const Contact = () => {
 
             <dl className="divide-y divide-border rounded-3xl border border-border bg-card">
               {details.map((d) => (
-                <div key={d.label} className="flex items-center gap-4 px-6 py-4">
+                <div key={d.label} className="flex items-start gap-4 px-6 py-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 ring-1 ring-primary/25">
                     <d.icon className="h-[18px] w-[18px] text-primary" aria-hidden="true" />
                   </span>
                   <div className="min-w-0">
                     <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{d.label}</dt>
                     <dd className="truncate text-[15px] text-foreground">
-                      {d.href ? (
+                      {"numbers" in d && d.numbers ? (
+                        <span className="flex flex-col">
+                          {d.numbers.map((n) => (
+                            <a key={n.href} href={n.href} className="transition-colors hover:text-primary">
+                              {n.value}
+                            </a>
+                          ))}
+                        </span>
+                      ) : "href" in d && d.href ? (
                         <a
                           href={d.href}
-                          {...(d.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                          {..."external" in d && d.external ? { target: "_blank", rel: "noopener noreferrer" } : {}}
                           className="inline-flex items-center gap-1 transition-colors hover:text-primary"
                         >
                           {d.value}
-                          {d.external && <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
+                          {"external" in d && d.external && <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />}
                         </a>
                       ) : (
-                        d.value
+                        "value" in d && d.value
                       )}
                     </dd>
                   </div>
