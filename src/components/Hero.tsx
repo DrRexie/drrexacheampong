@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import StrategicProjects from "@/components/StrategicProjects";
 import rexHeadshot from "@/assets/rex-hero-new.png";
 import rexLogo from "@/assets/rex-logo.png";
 
@@ -53,9 +54,7 @@ const Hero = () => {
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-border hover:bg-secondary">
-                View Projects
-              </Button>
+              <StrategicProjects />
             </div>
           </div>
           
