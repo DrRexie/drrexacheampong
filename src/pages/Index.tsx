@@ -12,9 +12,19 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
+  // Links like /#expertise (from the footer or the Gallery page) arrive before the
+  // sections exist, so jump to the section once the page has rendered.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+    const t = window.setTimeout(() => document.getElementById(id)?.scrollIntoView({ block: "start" }), 120);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <>
       <Helmet>
