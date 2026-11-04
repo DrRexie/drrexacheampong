@@ -1,75 +1,26 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Dr. Rex Acheampong brand marks (gold on black). CHOSEN selects the one the site uses.
- * crown: "Rex" = king · crest: modern shield with R + staff · caduceus: single-line caduceus · laurel: laurel monogram
+ * Dr. Rex Acheampong brand mark: the Laurel Monogram.
+ * A slim laurel wreath framing a serif R: achievement and scholarship, made contemporary.
+ * The R is an outlined path, so the mark renders identically everywhere.
  */
-export type MarkName = "crown" | "crest" | "caduceus" | "laurel";
-export const CHOSEN: MarkName = "crown";
+const R_PATH = "M33.37280701754386 66.0C35.95760233918129 65.90058479532163 38.49269005847954 65.85087719298245 41.07748538011696 65.85087719298245C43.66228070175439 65.85087719298245 46.24707602339182 65.90058479532163 48.83187134502924 66.0V64.01169590643275L46.99269005847954 63.8625730994152C44.656432748538016 63.66374269005848 44.60672514619883 63.56432748538011 44.60672514619883 59.14035087719298V34.932748538011694C45.30263157894737 34.634502923976605 46.24707602339182 34.485380116959064 47.539473684210535 34.485380116959064C51.96345029239767 34.485380116959064 54.49853801169591 36.82163742690058 54.49853801169591 40.847953216374265C54.49853801169591 43.48245614035088 53.255847953216374 45.71929824561403 51.21783625730994 46.91228070175438C49.975146198830416 47.6578947368421 48.73245614035088 47.856725146198826 46.893274853801174 47.856725146198826V49.0L57.33187134502924 66.0C58.82309941520468 65.90058479532163 60.31432748538012 65.85087719298245 61.80555555555556 65.85087719298245C63.39619883040936 65.85087719298245 65.03654970760235 65.90058479532163 66.62719298245614 66.0V64.01169590643275C64.83771929824562 63.66374269005848 64.24122807017545 63.41520467836257 63.147660818713454 61.774853801169584L54.15058479532164 48.154970760233915C56.934210526315795 47.01169590643275 58.07748538011696 46.21637426900584 59.41959064327486 44.774853801169584C60.81140350877193 43.18421052631579 61.55701754385966 41.39473684210526 61.55701754385966 39.307017543859644C61.55701754385966 34.485380116959064 58.37573099415205 32.0 52.11257309941521 32.0C48.83187134502924 32.0 45.5014619883041 32.14912280701754 42.220760233918135 32.14912280701754C39.288011695906434 32.14912280701754 36.30555555555556 32.09941520467836 33.37280701754386 32.0V33.8391812865497L35.21198830409357 33.98830409356725C37.44883040935673 34.187134502923975 37.59795321637427 34.485380116959064 37.59795321637427 38.859649122807014V59.14035087719298C37.59795321637427 63.56432748538011 37.548245614035096 63.66374269005848 35.21198830409357 63.8625730994152L33.37280701754386 64.01169590643275Z";
 
-const GOLD = "#D4AF5A";
-
-const leaves: [number, number, number][] = [
+const LEAVES: [number, number, number][] = [
   [19, 64, -60], [16, 50, -80], [18, 36, -105], [24, 25, -125],
   [81, 64, 60], [84, 50, 80], [82, 36, 105], [76, 25, 125],
 ];
 
-function Glyph({ name, color }: { name: MarkName; color: string }) {
-  switch (name) {
-    case "crown":
-      return (
-        <>
-          <path d="M22 66 L26 34 L40 50 L50 26 L60 50 L74 34 L78 66 Z" fill="none" stroke={color} strokeWidth="5" strokeLinejoin="round" />
-          <circle cx="26" cy="29" r="4.5" fill={color} />
-          <circle cx="50" cy="20" r="5" fill={color} />
-          <circle cx="74" cy="29" r="4.5" fill={color} />
-          <path d="M22 76 H78" stroke={color} strokeWidth="5" strokeLinecap="round" />
-        </>
-      );
-    case "crest":
-      return (
-        <>
-          <path d="M50 10 L82 21 V48 C82 70 68 84 50 92 C32 84 18 70 18 48 V21 Z" fill="none" stroke={color} strokeWidth="4" />
-          <text x="50" y="66" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontWeight="700" fontSize="46" fill={color}>R</text>
-          <path d="M50 24 V80" stroke={color} strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
-          <circle cx="50" cy="22" r="3" fill={color} />
-        </>
-      );
-    case "caduceus":
-      return (
-        <>
-          <path d="M50 14 V88" stroke={color} strokeWidth="5" strokeLinecap="round" />
-          <circle cx="50" cy="13" r="5" fill={color} />
-          <path d="M50 30 C24 24 22 18 22 18 C30 30 40 34 50 36 M50 30 C76 24 78 18 78 18 C70 30 60 34 50 36" fill="none" stroke={color} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M60 42 C38 48 38 58 50 60 C62 62 62 72 40 78" fill="none" stroke={color} strokeWidth="4.5" strokeLinecap="round" />
-          <circle cx="63" cy="41" r="3.5" fill={color} />
-        </>
-      );
-    case "laurel":
-      return (
-        <>
-          <path d="M30 80 C14 66 12 40 26 22" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" />
-          <path d="M70 80 C86 66 88 40 74 22" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" />
-          {leaves.map(([x, y, r]) => (
-            <ellipse key={`${x}-${y}`} cx={x} cy={y} rx="6" ry="2.6" transform={`rotate(${r} ${x} ${y})`} fill={color} />
-          ))}
-          <text x="50" y="66" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontWeight="700" fontSize="48" fill={color}>R</text>
-          <path d="M38 86 H62" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
-        </>
-      );
-  }
-}
-
 interface BrandMarkProps {
   className?: string;
-  name?: MarkName;
   /** Draw the mark on a black rounded tile (for icons). */
   tile?: boolean;
   color?: string;
   title?: string;
 }
 
-const BrandMark = ({ className, name = CHOSEN, tile = false, color = GOLD, title }: BrandMarkProps) => (
+const BrandMark = ({ className, tile = false, color = "#D4AF5A", title }: BrandMarkProps) => (
   <svg
     viewBox="0 0 100 100"
     className={cn("shrink-0", className)}
@@ -78,7 +29,13 @@ const BrandMark = ({ className, name = CHOSEN, tile = false, color = GOLD, title
     aria-hidden={title ? undefined : true}
   >
     {tile && <rect width="100" height="100" rx="22" fill="#0B0B0C" />}
-    <Glyph name={name} color={color} />
+    <path d="M30 80 C14 66 12 40 26 22" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" />
+    <path d="M70 80 C86 66 88 40 74 22" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" />
+    {LEAVES.map(([x, y, r]) => (
+      <ellipse key={`${x}-${y}`} cx={x} cy={y} rx="6" ry="2.6" transform={`rotate(${r} ${x} ${y})`} fill={color} />
+    ))}
+    <path d={R_PATH} fill={color} />
+    <path d="M38 86 H62" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
   </svg>
 );
 
