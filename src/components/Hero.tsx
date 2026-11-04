@@ -6,7 +6,7 @@ import BrandMark from "@/components/BrandMark";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-24 lg:pt-24">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(42_58%_59%_/_0.12)_0%,_transparent_55%)]" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-glow-pulse" />
