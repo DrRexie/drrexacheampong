@@ -99,7 +99,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="projects" className="py-28 md:py-32 relative overflow-hidden">
       {/* Parallax Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Slow moving large gradient orb */}
@@ -171,9 +171,9 @@ const Projects = () => {
         />
       </div>
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div ref={headerRef} className={`mb-14 max-w-3xl transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="eyebrow">Projects</span>
-          <h2 className="text-5xl md:text-6xl font-semibold leading-[1.02] mt-5">
+          <h2 className="mt-5 text-4xl font-semibold leading-[1.04] md:text-5xl lg:text-6xl">
             Featured Work
           </h2>
         </div>

@@ -170,8 +170,7 @@ const Contact = () => {
             id="contact-form"
             className={`scroll-mt-28 rounded-3xl border border-border bg-card p-7 transition-all delay-200 duration-700 md:p-9 ${sectionVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
           >
-            <h3 className="font-serif text-3xl font-semibold text-foreground">Send a message</h3>
-            <p className="mt-2 mb-7 text-sm text-muted-foreground">I usually reply within two business days.</p>
+            <h3 className="mb-7 font-serif text-3xl font-semibold text-foreground">Send a message</h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                 <div className="grid gap-4 sm:grid-cols-2">

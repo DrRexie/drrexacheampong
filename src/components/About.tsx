@@ -24,7 +24,7 @@ const journey = [
     years: "2024 – today",
     place: "New Jersey & Accra",
     title: "Bringing it home",
-    text: "As Chief Informatics Officer at Strategic eHealth Solutions, I lead informatics and AI strategy for Ghana's digital health transformation.",
+    text: "Back to where it began: working between New Jersey and Accra on Ghana's digital health transformation.",
   },
 ];
 
