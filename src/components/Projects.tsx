@@ -1,27 +1,78 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useEffect, useState, useRef } from "react";
 
-const projects = [
+type Tag = { name: string; summary: string };
+
+const projects: { title: string; category: string; description: string; tags: Tag[] }[] = [
   {
     title: "AI-Powered Clinical Decision Support",
     category: "Healthcare AI",
     description: "Built an intelligent agent system that analyzes patient data in real-time, providing clinicians with evidence-based treatment recommendations.",
-    tags: ["Multi-Agent RAG", "NLP", "Clinical AI"]
+    tags: [
+      {
+        name: "Multi-Agent RAG",
+        summary:
+          "Retrieval-augmented generation with several cooperating AI agents: each one looks up trusted sources and patient context before the system answers, so its output is grounded in evidence rather than the model's memory. Here it drives the evidence-based treatment recommendations clinicians receive.",
+      },
+      {
+        name: "NLP",
+        summary:
+          "Natural language processing lets software read and understand written language such as clinical notes, reports and guidelines. Here it turns patient documentation into information the decision-support agents can analyze in real time.",
+      },
+      {
+        name: "Clinical AI",
+        summary:
+          "AI designed for use in patient care, where accuracy, transparency and clinician oversight come first. Here the system supports clinicians with recommendations at the point of care, while treatment decisions stay with the clinician.",
+      },
+    ],
   },
   {
     title: "National Health Data Platform",
     category: "GovTech",
     description: "Designed and implemented a scalable health informatics platform for a national health ministry, serving millions of citizens.",
-    tags: ["Data Architecture", "Cloud", "Security"]
+    tags: [
+      {
+        name: "Data Architecture",
+        summary:
+          "The blueprint for how health data is structured, connected and governed across facilities and systems. Here it lets a national health ministry bring information together on one platform that scales to millions of citizens.",
+      },
+      {
+        name: "Cloud",
+        summary:
+          "Cloud infrastructure provides computing and storage that can grow with demand. Here it gives the national platform room to scale as more facilities and citizens are served.",
+      },
+      {
+        name: "Security",
+        summary:
+          "Protecting sensitive health records through access control, encryption, monitoring and audit trails. Here it is a foundation of the platform, which holds health information at national scale.",
+      },
+    ],
   },
   {
     title: "Predictive Analytics for Hospital Operations",
     category: "Healthcare Analytics",
     description: "Developed ML models that predict patient admission patterns, reducing wait times by 40% and optimizing resource allocation.",
-    tags: ["Machine Learning", "Operations", "Analytics"]
-  }
+    tags: [
+      {
+        name: "Machine Learning",
+        summary:
+          "Models that learn patterns from historical data to make predictions. Here they forecast patient admission patterns, the basis for reducing wait times by 40%.",
+      },
+      {
+        name: "Operations",
+        summary:
+          "The day-to-day running of a hospital: beds, staffing, scheduling and patient flow. Here admission forecasts let teams prepare for demand before it arrives.",
+      },
+      {
+        name: "Analytics",
+        summary:
+          "Turning data into clear measures and insights that decision-makers can act on. Here it guides how the hospital allocates its resources.",
+      },
+    ],
+  },
 ];
 
 const Projects = () => {
@@ -155,14 +206,26 @@ const Projects = () => {
                   </p>
                   <div className={`flex flex-wrap gap-2 mt-4 transition-all duration-500 ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: projectsVisible ? `${index * 200 + 250}ms` : '0ms' }}>
-                    {project.tags.map((tag, tagIndex) => (
-                      <span 
-                        key={tag} 
-                        className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300 group-hover:scale-105"
-                        style={{ transitionDelay: `${tagIndex * 50}ms` }}
-                      >
-                        {tag}
-                      </span>
+                    {project.tags.map((tag) => (
+                      <Popover key={tag.name}>
+                        <PopoverTrigger asChild>
+                          <button
+                            type="button"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded-full border border-primary/30 bg-primary/10 text-primary transition-all duration-200 hover:bg-primary hover:text-primary-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[state=open]:bg-primary data-[state=open]:text-primary-foreground data-[state=open]:border-primary"
+                          >
+                            {tag.name}
+                            <Plus className="w-3 h-3 transition-transform duration-200 [[data-state=open]_&]:rotate-45" aria-hidden="true" />
+                          </button>
+                        </PopoverTrigger>
+                        <PopoverContent align="start" sideOffset={8} className="w-80 rounded-2xl border-primary/20 p-5 shadow-xl shadow-primary/10">
+                          <p className="text-xs font-medium uppercase tracking-widest text-primary">{project.category}</p>
+                          <h4 className="mt-1 text-base font-bold text-foreground">{tag.name}</h4>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tag.summary}</p>
+                          <p className="mt-3 border-t border-border pt-3 text-xs text-muted-foreground">
+                            Part of <span className="font-medium text-foreground">{project.title}</span>
+                          </p>
+                        </PopoverContent>
+                      </Popover>
                     ))}
                   </div>
                 </div>
