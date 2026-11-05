@@ -32,3 +32,12 @@ export function prefillContact(detail: { audience?: Audience; service?: string }
   jumpState.toForm = true;
   window.setTimeout(go, 350);
 }
+
+/** Jump to an in-page section from inside a closing dialog (waits for its scroll lock to release). */
+export function jumpFromDialog(hash: string) {
+  jumpState.toForm = true;
+  window.setTimeout(() => {
+    document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    jumpState.toForm = false;
+  }, 350);
+}
