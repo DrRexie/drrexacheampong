@@ -18,7 +18,17 @@ export const SERVICE_GROUPS: { label: string; options: string[] }[] = [
 
 export const PREFILL_EVENT = "contact:prefill";
 
-export function prefillContact(detail: { audience?: Audience; service?: string }) {
-  window.dispatchEvent(new CustomEvent(PREFILL_EVENT, { detail }));
-  document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+/** Set while a dialog closes to jump to the form, so it skips returning focus to its trigger. */
+export const jumpState = { toForm: false };
+
+export function prefillContact(detail: { audience?: Audience; service?: string }, opts: { fromDialog?: boolean } = {}) {
+  const go = () => {
+    window.dispatchEvent(new CustomEvent(PREFILL_EVENT, { detail }));
+    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    jumpState.toForm = false;
+  };
+  if (!opts.fromDialog) return go();
+  // Wait for the closing dialog to release its scroll lock before moving the page.
+  jumpState.toForm = true;
+  window.setTimeout(go, 350);
 }
