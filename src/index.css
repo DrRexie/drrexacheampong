@@ -117,6 +117,12 @@
     scroll-padding-top: 6rem;
   }
 
+  /* Slide-in reveals start off to the side; clip them so phones never scroll sideways. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
