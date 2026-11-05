@@ -1,6 +1,8 @@
-import { ArrowRight, BarChart3, Bot, Check, ClipboardCheck, Compass, Network, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, BarChart3, Plus, Bot, Check, ClipboardCheck, Compass, Network, ShieldCheck, Sparkles } from "lucide-react";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { EXPERTISE_DETAILS } from "@/data/expertise-details";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { TOOL_SUMMARIES } from "@/data/tool-summaries";
 import { jumpState, prefillContact } from "@/lib/contact-prefill";
 import SectionHeader from "@/components/SectionHeader";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -38,11 +40,6 @@ const disciplines = [
   },
 ];
 
-const tools = [
-  "Python", "R", "SQL", "SAS", "Stata", "SPSS", "MATLAB", "Tableau", "Power BI", "Crystal Reports",
-  "Epic", "GE Centricity", "SQL Server", "Oracle", "Hadoop", "Spark", "ICD-10", "CPT/HCPCS", "LOINC",
-  "SNOMED CT", "HL7", "FHIR",
-];
 
 type Discipline = (typeof disciplines)[number];
 
@@ -169,9 +166,30 @@ const Expertise = () => {
         <div className="mt-10">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Tools &amp; standards</p>
           <ul className="flex flex-wrap gap-2">
-            {tools.map((t) => (
-              <li key={t} className="rounded-full border border-border bg-card px-3.5 py-1.5 font-mono text-xs text-foreground/80">
-                {t}
+            {TOOL_SUMMARIES.map((t) => (
+              <li key={t.name}>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button
+                      type="button"
+                      className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1.5 font-mono text-xs text-foreground/80 transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=open]:border-primary data-[state=open]:bg-primary/10 data-[state=open]:text-primary"
+                    >
+                      {t.name}
+                      <Plus className="h-3 w-3 transition-transform duration-200 [[data-state=open]_&]:rotate-45" aria-hidden="true" />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent align="start" sideOffset={8} collisionPadding={16} className="w-[min(88vw,20rem)] rounded-2xl border-primary/25 p-5 shadow-xl shadow-black/40">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">{t.kind}</p>
+                    <h4 className="mt-1 font-mono text-base font-semibold text-foreground">{t.name}</h4>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.summary}</p>
+                    {t.onSite && (
+                      <p className="mt-3 border-t border-border pt-3 text-xs leading-relaxed text-foreground/85">
+                        <span className="font-semibold text-primary">Dr. Rex's work: </span>
+                        {t.onSite}
+                      </p>
+                    )}
+                  </PopoverContent>
+                </Popover>
               </li>
             ))}
           </ul>
