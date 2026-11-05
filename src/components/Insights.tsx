@@ -72,30 +72,24 @@ const InsightDialog = ({ note }: { note: InsightNote }) => (
         <div className="flex flex-wrap gap-2">
           {note.related && (
             <DialogClose asChild>
-              <a
-                href={note.related.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  jumpFromDialog(note.related!.href);
-                }}
+              <button
+                type="button"
+                onClick={() => jumpFromDialog(note.related!.href)}
                 className="inline-flex min-h-11 items-center gap-2 rounded-full border border-primary/50 px-5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
               >
                 {note.related.label}
-              </a>
+              </button>
             </DialogClose>
           )}
           <DialogClose asChild>
-            <a
-              href="#contact-form"
-              onClick={(e) => {
-                e.preventDefault();
-                jumpFromDialog("#contact-form");
-              }}
+            <button
+              type="button"
+              onClick={() => jumpFromDialog("#contact-form")}
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[hsl(var(--gold-light))]"
             >
               Discuss this topic
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </button>
           </DialogClose>
         </div>
       </div>
