@@ -1,4 +1,4 @@
-import rexHeadshot from "@/assets/rex-portrait-red-tie.jpg";
+import rexHeadshot from "@/assets/rex-portrait-office-red-tie.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const journey = [
