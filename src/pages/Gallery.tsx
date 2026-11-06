@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import rexPortrait from "@/assets/rex-portrait-navy-suit.jpg";
 import rexHeadshot from "@/assets/rex-hero-new.png";
 import rexAboutPhoto from "@/assets/rex-about-photo.png";
 import rexOffice1 from "@/assets/rex-office-1.png";
@@ -13,6 +14,7 @@ import rexBillboard from "@/assets/rex-billboard.png";
 import rexOfficeSignage from "@/assets/rex-office-signage.png";
 
 const galleryImages = [
+  { src: rexPortrait, alt: "Rex Acheampong, PhD - Portrait in navy suit" },
   { src: rexEhealthSolutions, alt: "Dr. Rex Acheampong - Strategic eHealth Solutions" },
   { src: rexLibrary2026, alt: "Dr. Rex Acheampong - 2026 Vision" },
   { src: rexBillboard, alt: "Dr. Rex Acheampong - Strategic eHealth Solutions Billboard" },

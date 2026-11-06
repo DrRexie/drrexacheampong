@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import StrategicProjects from "@/components/StrategicProjects";
-import rexHeadshot from "@/assets/rex-hero-new.png";
+import rexHeadshot from "@/assets/rex-portrait-navy-suit.jpg";
 import BrandMark from "@/components/BrandMark";
 
 const Hero = () => {
@@ -65,6 +65,9 @@ const Hero = () => {
                 <img 
                   src={rexHeadshot} 
                   alt="Rex Acheampong, PhD" 
+                  width={1000}
+                  height={1000}
+                  fetchPriority="high"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
